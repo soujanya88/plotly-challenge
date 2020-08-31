@@ -1,6 +1,6 @@
 function init() {
   var ul = d3.select("#selDataset");
-  d3.json("samples.json").then((data) => {
+  d3.json("data/samples.json").then((data) => {
     ul.selectAll('option')
       .data(data.names)
       .enter()
@@ -12,7 +12,7 @@ function init() {
 
   ul.on("change", function () {
     var dropdownValue = this.value;
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
       buildMetadata(data, dropdownValue);
     });
   });
